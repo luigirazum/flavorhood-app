@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.1.2"
+ruby "3.3.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3"
@@ -44,9 +44,18 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Add authentication with 'devise' gem
+gem 'devise', '~> 4.9'
+
+# Add authorization rules with 'cancancan' gem
+gem 'cancancan', '~> 3.5'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]
+
+  # to be able to test for rendered templates
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -60,5 +69,13 @@ group :development do
   # gem "spring"
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+
+  # Write tests and unit tests using BDD/TDD [https://rspec.info/]
+  gem 'rspec-rails'
 end
 
+group :test do
+  # Use system/integration testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem 'capybara'
+  gem 'selenium-webdriver'
+end
