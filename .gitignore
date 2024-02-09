@@ -33,3 +33,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore vscode local settings
+.vscode
+
+# Ignore node_modules
+node_modules
